@@ -44,7 +44,7 @@ public class Pickup{
             x = r.Next(0, maxX);
             y = r.Next(0, maxY);
 
-            while (SnakeSegment[x,y] != null)
+            while (Canvas[x,y] != null)
             {
                 x = r.Next(0, maxX);
                 y = r.Next(0, maxY);

@@ -44,7 +44,11 @@ public class Pickup{
             x = r.Next(0, maxX);
             y = r.Next(0, maxY);
 
+<<<<<<< Updated upstream
             while (Canvas[x,y] != null)
+=======
+            while (segments[x,y] != null)
+>>>>>>> Stashed changes
             {
                 x = r.Next(0, maxX);
                 y = r.Next(0, maxY);

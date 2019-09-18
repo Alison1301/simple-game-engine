@@ -54,8 +54,13 @@ class Program
                 break;
             }
 
+<<<<<<< Updated upstream
             int prevSnakeX = x;
             int prevSnakeY = y;
+=======
+            int prevSnakeX = xPosition;
+            int prevSnakeY = yPosition;
+>>>>>>> Stashed changes
             Update();
 
             /*  ------------------------------------------

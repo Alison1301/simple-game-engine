@@ -16,6 +16,10 @@ public class Pickup{
 
             Call the SetPosition method.
         */
+
+        this.maxX = maxX;
+        this.maxY = maxY;
+        SetPosition();
     }
 
     public int X {
@@ -34,5 +38,18 @@ public class Pickup{
             between 0 and maxX, and y to a random value 
             between 0 maxY.
         */
+
+        for(int i = 0;i < segments.Length; i++)
+        {
+            x = r.Next(0, maxX);
+            y = r.Next(0, maxY);
+
+            while (SnakeSegment[x,y] != null)
+            {
+                x = r.Next(0, maxX);
+                y = r.Next(0, maxY);
+            }
+        }
+       
     }
 }

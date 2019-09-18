@@ -18,12 +18,10 @@ public class Snake{
     private List<SnakeSegment> segments = new List<SnakeSegment>();
 
     public Snake(int x, int y, double speed){
-        /*  ------------------------------------------
-            2.1
-            ------------------------------------------   
-            Initialize the x, y and speed fields 
-            using the values passed to the constructor
-        */
+
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
 
         
         /*  Adds a segment to the segments List
@@ -47,6 +45,7 @@ public class Snake{
             down to the nearest whole number. 
             We still have to cast it to an int */
         get {return (int) Math.Floor(x);}
+
     }
 
     public int Y {
@@ -73,9 +72,12 @@ public class Snake{
             the same way we access elements in an array. For instance 
             segments[0] will get the first item in the segments List.
             You can use the segments.Count property to determine the number of
-            elements in the segments List.
+            elements in the segments List.*/
+            
+        SnakeSegment lastSegment = segments[segments.Count-1];
+        segments.Add(new SnakeSegment(lastSegment.PrevX,lastSegment.PrevY,'O'));
 
-            2. Next we need to create the new Segment that we can add to the 
+            /*2. Next we need to create the new Segment that we can add to the 
             segments List. We can store it in a variable called newSegment.
             If you look at the constructor for SnakeSegment you will see we need 
             to specify the x and y position as well as a character that will represent
@@ -85,6 +87,9 @@ public class Snake{
 
             3. use the segments.Add method to add the newSegment to the back of
             the segments List.
+
+        private int[] newSegment;
+        segments.Add(new SnakeSegment(newSegment.x,newSegment.y,'O'));
         */
     }
 
@@ -104,6 +109,12 @@ public class Snake{
 
             You can use the segments.Count property to loop through
             the List of snake segments.  
+
+        for(int x = 0;x < segments; x++){
+        for(int y = 0;y < segments; y ++{
+        segments[x,y] = "O";
+
+        segments.Count(new SnakeSegment(x,y,'O'));
         */
     }
 
@@ -116,6 +127,10 @@ public class Snake{
             segments List.
 
             It should return false otherwise.
+
+        if(x == y){
+        isHeadTouchingBody = true}
+
         */
         return false;
     }
@@ -129,12 +144,22 @@ public class Snake{
             yDir = 1;
             xDir = 0;
         }
+
         /*  ------------------------------------------
             2.5
             ------------------------------------------   
             Complete this decision structure to also update the 
-            directions when the LEFT and RIGHT keys are pressed.
-        */
+            directions when the LEFT and RIGHT keys are pressed.*/
+            
+        if(Input.KeyPressed ==InputType.LEFT){
+        yDir = 0;
+        xDir = -1;
+        }
+        else if(Input.KeyPressed == InputType.RIGHT){
+        yDir = 0;
+        xDir = 1;
+        }
+
 
         /*  ------------------------------------------
             2.6
@@ -157,7 +182,10 @@ public class Snake{
             Do the same for the y position.
 
             REMEMBER: you can use the static Time class to access the 
-            DeltaTime property.
-        */
+            DeltaTime property.*/
+
+        x = xDir * speed * Time.DeltaTime;
+        y = yDir * speed * Time.DeltaTime;
+        
     }
 }
